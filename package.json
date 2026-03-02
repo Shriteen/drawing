@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --no-cache",
     "build": "parcel build"
   },
   "dependencies": {
@@ -15,5 +15,12 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "parcel": "^2.14.0"
+  },
+  "alias":{
+    "_components": "./src/components",
+    "_contexts": "./src/contexts",
+    "_hooks": "./src/hooks",
+    "_constants": "./src/constants",
+    "_services": "./src/services"
   }
 }
