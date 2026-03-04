@@ -43,3 +43,17 @@ export function DrawingContextProvider({children}){
     </DrawingContext.Provider>
   );
 }
+
+export const ZoomContext = createContext({});
+
+export function ZoomContextProvider({children}){
+  const [scale, setScale] =useState(1);
+
+  const value = useMemo(() => ({ scale, setScale }), [scale]);
+  
+  return (
+    <ZoomContext.Provider value={value}>
+      {children}
+    </ZoomContext.Provider>
+  );
+}

@@ -1,5 +1,5 @@
 import { MetadataContextProvider } from '_contexts/MetadataContext';
-import { CanvasContextProvider, PreviewCanvasContextProvider, DrawingContextProvider } from '_contexts/CanvasContext';
+import { CanvasContextProvider, PreviewCanvasContextProvider, DrawingContextProvider, ZoomContextProvider } from '_contexts/CanvasContext';
 import { FillStyleContextProvider,StrokeStyleContextProvider,LineContextProvider } from '_contexts/StylingContexts';
 import { ActiveToolContextProvider, ToolDynamicOptionsContextProvider ,ToolOptionsContextProvider } from '_contexts/ToolContexts';
 import SideBar from '_components/SideBar';
@@ -16,17 +16,19 @@ export default function Workspace() {
             <FillStyleContextProvider>
               <LineContextProvider>
                 <StrokeStyleContextProvider>
-                  <CanvasContextProvider >
-                    <PreviewCanvasContextProvider >
-                      <DrawingContextProvider >
-                        <div className='workspace'>
-                          <SideBar/>
-                          <ViewPort/>
-                          <StatusBar/>
-                        </div>
-                      </DrawingContextProvider >
-                    </PreviewCanvasContextProvider>
-                  </CanvasContextProvider>
+                  <ZoomContextProvider>
+                    <CanvasContextProvider >
+                      <PreviewCanvasContextProvider >
+                        <DrawingContextProvider >
+                          <div className='workspace'>
+                            <SideBar/>
+                            <ViewPort/>
+                            <StatusBar/>
+                          </div>
+                        </DrawingContextProvider >
+                      </PreviewCanvasContextProvider>
+                    </CanvasContextProvider>
+                  </ZoomContextProvider>
                 </StrokeStyleContextProvider>
               </LineContextProvider>
             </FillStyleContextProvider>

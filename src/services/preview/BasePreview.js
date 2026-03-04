@@ -12,7 +12,8 @@ export default class BasePreview{
 
     static onDraw(mouseX,mouseY, canvas, toolDynamicOptions, dispatchToolDynamicOptions){
 	const rect = canvas.getBoundingClientRect();
-	const updates = {x: mouseX-rect.left , y: mouseY-rect.top};
+	const scale = {x: (canvas.width / rect.width), y: (canvas.height / rect.height) }
+	const updates = {x: (mouseX-rect.left)*scale.x , y: (mouseY-rect.top)*scale.y};
 	dispatchToolDynamicOptions({type: "xy", ...updates });
 
 	return updates;

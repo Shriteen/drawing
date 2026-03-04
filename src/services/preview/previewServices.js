@@ -4,6 +4,7 @@ import CirclePreview from "./CirclePreview";
 import LinePreview from "./LinePreview";
 import PenPreview from "./PenPreview";
 import EraserPreview from "./EraserPreview";
+import TextPreview from "./TextPreview";
 
 const previewServices = {
     "rectangle": RectanglePreview,
@@ -11,7 +12,7 @@ const previewServices = {
     "line": LinePreview,
     "pen": PenPreview,
     "eraser": EraserPreview,
-    "text": BasePreview
+    "text": TextPreview
 };
 
 export default previewServices;
