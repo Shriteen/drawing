@@ -25,7 +25,7 @@ export default function usePreviewController(canvasRef, previewCanvasRef){
     
     function handleMouseDown(e){
 	
-	if(drawingState!=="drawing"){
+	if(activeTool && drawingState!=="drawing"){
 	    setDrawingState("drawing");
 	    
 	    const ctx= e.target.getContext("2d");

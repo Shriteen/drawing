@@ -37,6 +37,10 @@ html {
   justify-content: space-between;
 }
 
+.end-items{
+  display: flex;
+}
+
 .viewport{
   background-color: #e0e0e0;
   display: grid;
