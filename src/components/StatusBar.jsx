@@ -2,6 +2,7 @@ import { useContext } from "react";
 import useCanvasController from '_hooks/useCanvasController';
 import { ActiveToolContext } from "_contexts/ToolContexts";
 import {TOOL_MESSAGES} from "_constants/constants";
+import styles from './StatusBar.module.css';
 
 export default function StatusBar() {
   const { drawingState, handleCancel, handleCommit } = useCanvasController();
@@ -9,10 +10,10 @@ export default function StatusBar() {
 
   
   return (
-    <div className="statusbar">
+    <div className={styles.statusbar}>
       <span>{activeTool}</span>
       <span>{TOOL_MESSAGES[activeTool][drawingState]}</span>
-      <div className="end-items">
+      <div className={styles["end-items"]}>
         <span className='drawing-state'>{drawingState}</span>
         { drawingState==="preview" &&
           <div className="commit-buttons">

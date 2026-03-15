@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import useZoom from '_hooks/useZoom';
 import Canvas from '_components/Canvas';
+import styles from './Canvas.module.css';
 
 export default function ViewPort() {
   const {scale, zoomIn, zoomOut}= useZoom(1.05, 0.95);  
@@ -27,7 +28,7 @@ export default function ViewPort() {
   }, []);
   
   return (
-    <div className="viewport" ref={viewportRef}>
+    <div className={styles.viewport} ref={viewportRef}>
       <Canvas zoom={scale}/>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import styles from './ToolBar.module.css';
 
 function numToHex(number, minWidth=2){
   return Number(number).toString(16).padStart(minWidth, '0').toUpperCase();
@@ -65,7 +66,7 @@ export default function ColorOptions({
   
   
   return (
-    <div className="color-options">
+    <div className={styles["color-options"]}>
       <div className="color-1">
         <div className="color-input-element">
           <label>{(mode==="solid")?"Select Color":"Start Color"}</label>
@@ -73,7 +74,7 @@ export default function ColorOptions({
                  value={ primaryColor }
                  onChange={(e)=>setPrimaryColor(e.target.value)}/>
         </div>
-        <div className="rgba-input">
+        <div className={styles["rgba-input"]}>
           <input type="number" min="0" max="255"
                  value={ primaryR }
                  onChange={(e)=>setPrimaryR(Math.min(Math.max(e.target.value, 0), 255))}/>
@@ -98,7 +99,7 @@ export default function ColorOptions({
                        value={ secondaryColor }
                        onChange={(e)=>setSecondaryColor(e.target.value)}/>
               </div>
-              <div className="rgba-input">
+              <div className={styles["rgba-input"]}>
                 <input type="number" min="0" max="255"
                        value={ secondaryR }
                        onChange={(e)=>setSecondaryR(Math.min(Math.max(e.target.value, 0), 255))}/>
@@ -113,7 +114,7 @@ export default function ColorOptions({
                        onChange={(e)=>setSecondaryA(Math.min(Math.max(e.target.value, 0), 1))}/>
               </div>
             </div>
-            <div className="source-point">
+            <div className={styles["source-point"]}>
               <div>
                 <label>Start Coordinates</label>
                 <input type="number" value={ sourceX }
@@ -131,7 +132,7 @@ export default function ColorOptions({
                 )
               }
             </div>
-            <div className="target-point">
+            <div className={styles["target-point"]}>
               <div>              
                 <label>End Coordinates</label>
                 <input type="number" value={ targetX }

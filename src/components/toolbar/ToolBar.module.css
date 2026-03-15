@@ -1,0 +1,37 @@
+.source-point, .target-point{
+  display: flex;
+  flex-direction: column;
+}
+.source-point > div, .target-point>div{
+  display: flex;
+}
+
+.style-controls{
+  margin: 1rem 0.5rem;
+}
+
+.style-controls>div + div{
+  margin-top: 0.5rem;
+}
+
+.lineStyleContainer{
+  margin: 0.5rem 0.5rem;
+}
+.color-options{
+  margin: 0.5rem 0.5rem;
+}
+.color-options > div + div{
+  margin-top: 0.5em;
+}
+
+.rgba-input{
+  display: flex;
+}
+.rgba-input>*{
+  flex:1;
+}
+
+.text-options{
+  display: flex;
+  margin: 0.7em 0em;
+}

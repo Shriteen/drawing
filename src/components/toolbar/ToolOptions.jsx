@@ -3,6 +3,7 @@ import ButtonSet from "_components/utility/ButtonSet";
 import { ActiveToolContext,ToolOptionsContext } from "_contexts/ToolContexts";
 import { ARC_SUBTOOLS } from "_constants/constants";
 import fontList from "_constants/fonts";
+import styles from './ToolBar.module.css';
 
 
 const fillStroke=[{id: "stroke", label: "Stroke"},
@@ -102,7 +103,7 @@ export default function ToolOptions() {
               {fontOptionElements}
             </select>
           </div>
-          <div className="text-options">
+            <div className={styles["text-options"]}>
             <div>
               <label>Size</label>
               <input type="number"

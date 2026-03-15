@@ -1,0 +1,10 @@
+.buttonset{
+  display: flex;
+}
+.buttonset>button{
+  flex: 1;
+}
+
+.active-button{
+  background-color: #999;
+}

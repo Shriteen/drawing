@@ -1,0 +1,10 @@
+.statusbar{
+  background-color: #eee;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.end-items{
+  display: flex;
+}

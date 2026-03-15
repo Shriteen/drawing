@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CanvasContext, PreviewCanvasContext } from "_contexts/CanvasContext";
 import usePreviewController from "_hooks/usePreviewController";
+import styles from './Canvas.module.css';
 
 export default function Canvas({zoom}) {
   const canvasRef= useContext(CanvasContext);  
@@ -18,12 +19,23 @@ export default function Canvas({zoom}) {
   } = usePreviewController(canvasRef, previewCanvasRef);  
   
   return (
-    <div className="canvas-container" style={{width, height, zoom}}>
-      <canvas className="canvas canvas-main" ref={canvasRef}
-              style={(activeTool==="eraser" && drawingState!=="synced")?{visibility:"hidden"}:{}}
-              width={width} height={height}></canvas>
-      <canvas className="canvas canvas-preview" ref={previewCanvasRef} width={width} height={height}
-              onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove}></canvas>
+    <div className={styles["canvas-container"]} style={{width, height, zoom}}>
+      <canvas className={"canvas" + styles["canvas-main"]}
+              ref={canvasRef}
+              style={
+                (activeTool==="eraser" && drawingState!=="synced")?{visibility:"hidden"}:{}
+              }
+              width={width}
+              height={height}>
+      </canvas>
+      <canvas className={"canvas" + styles["canvas-preview"]}
+              ref={previewCanvasRef}
+              width={width}
+              height={height}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}>
+      </canvas>
     </div>
   );
 }

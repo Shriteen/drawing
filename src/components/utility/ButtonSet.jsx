@@ -1,8 +1,9 @@
+import styles from './ButtonSet.module.css';
 
 export default function ButtonSet({buttons, selectedIndex=-1, onSelect}) {
   const buttonJsx= buttons.map((btn, i)=>{
     return (
-      <button className={(i==selectedIndex)?"active-button":""}
+      <button className={(i==selectedIndex)?styles["active-button"]:""}
 	      onClick={(e)=>{onSelect(i); }}
 	      key={i}>
 	{btn.label}
@@ -10,7 +11,7 @@ export default function ButtonSet({buttons, selectedIndex=-1, onSelect}) {
   });
   
   return (
-    <div className="buttonset">
+    <div className={styles.buttonset}>
       {buttonJsx}
     </div>
   );

@@ -1,0 +1,31 @@
+.tabbar{
+  display: flex;
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.tab{
+  flex: 1;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f0f0f0;
+  display: flex;
+}
+
+.tab.active{
+  border: 1px solid #aaa;
+  background: #ddd;
+  border-bottom: 3px solid #009fff;
+}
+
+.tab .tab-title{
+  margin: auto;
+}
+
+.new-tab-button{
+  width: calc(3rem - 5px);
+  height: calc(3rem - 5px);
+  margin: 5px;
+}

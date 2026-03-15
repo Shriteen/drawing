@@ -14,38 +14,6 @@ html {
   width: 100vw;
 }
 
-.tabbar{
-  display: flex;
-  width: 100vw;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.tab{
-  flex: 1;
-  margin: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: #f0f0f0;
-  display: flex;
-}
-
-.tab.active{
-  border: 1px solid #aaa;
-  background: #ddd;
-  border-bottom: 3px solid #009fff;
-}
-
-.tab .tab-title{
-  margin: auto;
-}
-
-.new-tab-button{
-  width: calc(3rem - 5px);
-  height: calc(3rem - 5px);
-  margin: 5px;
-}
-
 .workspace{
   display: grid;
   grid-template-rows: minmax(0, 1fr) 2.5rem;
@@ -53,80 +21,6 @@ html {
   border-top: 2px solid #ddd
 }
 
-.sidebar{
-  grid-row: 1 / 3;
-  background-color: #f0f0f0;
-  border-right: 2px solid #ddd
-}
-
-.statusbar{
-  background-color: #eee;
-  border-top: 2px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-}
-
-.end-items{
-  display: flex;
-}
-
-.viewport{
-  background-color: #e0e0e0;
-  display: grid;
-  place-items: center;
-  overflow: auto;
-}
-
-.canvas-container{
-  position: relative;
-  margin: 5rem;
-  border: 1px solid #fff;
-  background: repeating-conic-gradient(#fff 0 25%, #e0e0e0 0 50%) 0% / 50px 50px;
-}
-
-.canvas-container canvas{
-  position: absolute;
-}
-
-.canvas-main{
-  
-}
-
-.buttonset{
-  display: flex;
-}
-.buttonset>button{
-  flex: 1;
-}
-
-.active-button{
-  background-color: #999;
-}
-
-.style-controls{
-  margin: 1rem 0.5rem;
-}
-
-.style-controls>div + div{
-  margin-top: 0.5rem;
-}
-
-.lineStyleContainer{
-  margin: 0.5rem 0.5rem;
-}
-.color-options{
-  margin: 0.5rem 0.5rem;
-}
-.color-options > div + div{
-  margin-top: 0.5em;
-}
-
-.rgba-input{
-  display: flex;
-}
-.rgba-input>*{
-  flex:1;
-}
 
 input[type="number"]{
   width: 4em;
@@ -145,19 +39,6 @@ input[type="color"]{
 
 ::-webkit-color-swatch,::-moz-color-swatch {
     border: none ;
-}
-
-.source-point, .target-point{
-  display: flex;
-  flex-direction: column;
-}
-.source-point > div, .target-point>div{
-  display: flex;
-}
-
-.text-options{
-  display: flex;
-  margin: 0.7em 0em;
 }
 
 .button-checkbox input[type=checkbox]{

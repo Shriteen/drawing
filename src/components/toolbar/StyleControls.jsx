@@ -5,8 +5,8 @@ import { FillStyleContext, StrokeStyleContext, LineContext } from '_contexts/Sty
 import { PreviewCanvasContext } from "_contexts/CanvasContext";
 import useFillStyle from '_hooks/useFillStyle';
 import useStrokeStyle from '_hooks/useStrokeStyle';
-
 import { COLOR_STYLE_MODES, LINE_STYLE_PATTERNS } from "_constants/constants";
+import styles from './ToolBar.module.css';
 
 const colorStyles= COLOR_STYLE_MODES.map(x=>{return {...x, label: x.mode}});
 
@@ -51,7 +51,7 @@ export default function StyleControls() {
 
   
   return (
-    <div className="style-controls">
+      <div className={styles["style-controls"]}>
       <div className="fillStyleContainer">
         <label>Fill Styles</label>    
         <ButtonSet key="fillStyle"
@@ -81,7 +81,7 @@ export default function StyleControls() {
                          initialTarget={strokeStyle.targetPoint}
                          onSelect={setStrokeColorStyle}/>
           }
-        <div className="lineStyleContainer">
+        <div className={styles["lineStyleContainer"]}>
           <label>Width</label>  
           <input type="number" min="1" max="50"
                  value={lineState.width}
