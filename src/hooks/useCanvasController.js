@@ -76,7 +76,17 @@ export default function useCanvasController(){
 	    console.warn("Redo called without states to restore")
 	}
     }
-    
+
+    function handleReset(){
+	const pctx= previewCanvasRef.current.getContext("2d");
+	const ctx= canvasRef.current.getContext("2d");
+
+	clearCanvas(pctx);
+	clearCanvas(ctx);
+
+	push();
+	setDrawingState("synced");
+    }
     
     return {
 	handleCancel,
@@ -84,6 +94,7 @@ export default function useCanvasController(){
 	drawingState,
 	handleUndo,
 	handleRedo,
+	handleReset,
 	canUndo: undoStack.length>1,
 	canRedo: redoStack.length>0
     };
