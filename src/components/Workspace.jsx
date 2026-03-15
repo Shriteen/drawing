@@ -8,9 +8,9 @@ import StatusBar from '_components/StatusBar';
 import ViewPort from '_components/ViewPort';
 
 
-export default function Workspace() {
+export default function Workspace({id, active}) {
   return (
-    <MetadataContextProvider initialTitle="Untitled">
+    <MetadataContextProvider id={id}>
       <HistoryContextProvider>
         <ActiveToolContextProvider>
           <ToolOptionsContextProvider>
@@ -22,7 +22,7 @@ export default function Workspace() {
                       <CanvasContextProvider >
                         <PreviewCanvasContextProvider >
                           <DrawingContextProvider >
-                            <div className='workspace'>
+                            <div className='workspace' style={active?null:{display:"none"}}>
                               <SideBar/>
                               <ViewPort/>
                               <StatusBar/>

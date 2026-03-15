@@ -1,12 +1,11 @@
 import './App.css';
-import TabBar from '_components/TabBar.jsx'
-import Workspace from '_components/Workspace.jsx'
+import AppView from '_components/AppView'; 
+import { AppContextProvider } from '_contexts/AppContext';
 
 export function App() {
   return (
-    <>
-      <TabBar/>
-      <Workspace/> 
-    </>
+    <AppContextProvider>
+      <AppView/>
+    </AppContextProvider>
   );
 }
