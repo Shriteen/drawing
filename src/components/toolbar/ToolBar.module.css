@@ -1,34 +1,17 @@
-.source-point, .target-point{
-  display: flex;
-  flex-direction: column;
-}
-.source-point > div, .target-point>div{
-  display: flex;
-}
-
-.style-controls{
-  margin: 1rem 0.5rem;
+.tool-palette button{
+  padding: 1em 0em;
+  margin: 0 1px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ddd;
+  transition-duration: 0.5s;
 }
 
-.style-controls>div + div{
-  margin-top: 0.5rem;
-}
-
-.lineStyleContainer{
-  margin: 0.5rem 0.5rem;
-}
-.color-options{
-  margin: 0.5rem 0.5rem;
-}
-.color-options > div + div{
-  margin-top: 0.5em;
-}
-
-.rgba-input{
-  display: flex;
-}
-.rgba-input>*{
-  flex:1;
+.tool-palette :global(.active-button){
+  background-color: #009fff;
+  color: white;
+  font-weight: bold;
+  padding: 1em 1em;
 }
 
 .text-options{

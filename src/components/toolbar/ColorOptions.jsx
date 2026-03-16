@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import styles from './ToolBar.module.css';
+import styles from './StyleControls.module.css';
 
 function numToHex(number, minWidth=2){
   return Number(number).toString(16).padStart(minWidth, '0').toUpperCase();
@@ -68,23 +68,27 @@ export default function ColorOptions({
   return (
     <div className={styles["color-options"]}>
       <div className="color-1">
-        <div className="color-input-element">
+        <div className={styles["color-input-element"]}>
           <label>{(mode==="solid")?"Select Color":"Start Color"}</label>
           <input type="color"
                  value={ primaryColor }
                  onChange={(e)=>setPrimaryColor(e.target.value)}/>
         </div>
         <div className={styles["rgba-input"]}>
-          <input type="number" min="0" max="255"
+          <input className={styles["r"]}
+                 type="number" min="0" max="255"
                  value={ primaryR }
                  onChange={(e)=>setPrimaryR(Math.min(Math.max(e.target.value, 0), 255))}/>
-          <input type="number" min="0" max="255"
+          <input className={styles["g"]}
+                 type="number" min="0" max="255"
                  value={ primaryG }
                  onChange={(e)=>setPrimaryG(Math.min(Math.max(e.target.value, 0), 255))}/>
-          <input type="number" min="0" max="255"
+          <input className={styles["b"]}
+                 type="number" min="0" max="255"
                  value={ primaryB }
                  onChange={(e)=>setPrimaryB(Math.min(Math.max(e.target.value, 0), 255))}/>
-          <input type="number" min="0" max="1" step="0.01"
+          <input className={styles["a"]}
+                 type="number" min="0" max="1" step="0.01"
                  value={ primaryA }
                  onChange={(e)=>setPrimaryA(Math.min(Math.max(e.target.value, 0), 1))}/>
         </div>
@@ -93,57 +97,69 @@ export default function ColorOptions({
         (mode==="linear-gradient" || mode==="radial-gradient") && (
           <>
             <div className="color-2">
-              <div className="color-input-element">
+              <div className={styles["color-input-element"]}>
                 <label>End Color</label>
                 <input type="color"
                        value={ secondaryColor }
                        onChange={(e)=>setSecondaryColor(e.target.value)}/>
               </div>
               <div className={styles["rgba-input"]}>
-                <input type="number" min="0" max="255"
+                <input className={styles["r"]}
+                       type="number" min="0" max="255"
                        value={ secondaryR }
                        onChange={(e)=>setSecondaryR(Math.min(Math.max(e.target.value, 0), 255))}/>
-                <input type="number" min="0" max="255"
+                <input className={styles["g"]}
+                       type="number" min="0" max="255"
                        value={ secondaryG }
                        onChange={(e)=>setSecondaryG(Math.min(Math.max(e.target.value, 0), 255))}/>
-                <input type="number" min="0" max="255"
+                <input className={styles["b"]}
+                       type="number" min="0" max="255"
                        value={ secondaryB }
                        onChange={(e)=>setSecondaryB(Math.min(Math.max(e.target.value, 0), 255))}/>
-                <input type="number" min="0" max="1" step="0.01"
+                <input className={styles["a"]}
+                       type="number" min="0" max="1" step="0.01"
                        value={ secondaryA }
                        onChange={(e)=>setSecondaryA(Math.min(Math.max(e.target.value, 0), 1))}/>
               </div>
             </div>
             <div className={styles["source-point"]}>
+              <label>Start:</label>
               <div>
-                <label>Start Coordinates</label>
+                <label>X</label>
                 <input type="number" value={ sourceX }
                        onChange={(e)=>setSourceX(Number(e.target.value))}/>
+              </div>
+              <div>
+                <label>Y</label>
                 <input type="number" value={ sourceY }
                        onChange={(e)=>setSourceY(Number(e.target.value))}/>
-              </div>
+              </div>  
               {
                 (mode==="radial-gradient" &&
                  <div>
-                   <label>Start Radius</label>
+                   <label>Rad</label>
                    <input type="number" value={ sourceRad }
                           onChange={(e)=>setSourceRad(Number(e.target.value))}/>
                  </div>
                 )
-              }
+              }              
             </div>
             <div className={styles["target-point"]}>
-              <div>              
-                <label>End Coordinates</label>
+              <label>End:</label>
+              <div>
+                <label>X</label>
                 <input type="number" value={ targetX }
                        onChange={(e)=>setTargetX(Number(e.target.value))}/>
+              </div>  
+              <div>                
+                <label>Y</label>
                 <input type="number" value={ targetY }
                        onChange={(e)=>setTargetY(Number(e.target.value))}/>
-              </div>
+              </div>                
               {
                 (mode==="radial-gradient" &&
                  <div>
-                   <label>End Radius</label>
+                   <label>Rad</label>
                    <input type="number" value={ targetRad }
                           onChange={(e)=>setTargetRad(Number(e.target.value))}/>
                  </div>
@@ -153,7 +169,7 @@ export default function ColorOptions({
           </>
         )
       }
-      <div>
+      <div className={styles["color-buttons"]}>
         {
           (mode==="linear-gradient" || mode==="radial-gradient") && (
             <button onClick={(e)=>{ setPrimaryColor(secondaryColor); setSecondaryColor(primaryColor) }}>Swap</button>

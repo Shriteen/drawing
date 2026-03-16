@@ -3,8 +3,61 @@
   border-top: 2px solid #ddd;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .end-items{
   display: flex;
+}
+
+.active-tool, .drawing-state{
+  text-transform: capitalize;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1em;
+  box-sizing: border-box;
+  background-color: #009fff;
+  color: white;
+  font-weight: bold;
+}
+
+.active-tool{
+  border-top-right-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+}
+
+.drawing-state{
+  border-top-left-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
+}
+
+.tool-message{
+  text-align: center;
+  margin: 3em;
+}
+
+.commit-buttons{
+  display: flex;
+}
+
+.commit-buttons button{
+  color: white;
+  font-weight: bold;
+  padding: 0 1.0em;
+  cursor: pointer;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.commit-buttons button:hover{
+  text-shadow: 0 0 5px;
+  scale: 1.1;
+}
+
+.cancel-button{
+  background-color: #ff1818;
+}
+
+.apply-button{
+  background-color: #38d77d;
 }

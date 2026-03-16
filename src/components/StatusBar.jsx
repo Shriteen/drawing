@@ -11,14 +11,14 @@ export default function StatusBar() {
   
   return (
     <div className={styles.statusbar}>
-      <span>{activeTool}</span>
-      <span>{TOOL_MESSAGES[activeTool][drawingState]}</span>
+      <span className={styles["active-tool"]} style={activeTool?{}:{visibility: "hidden"}}>{activeTool}</span>
+      <span className={styles["tool-message"]}>{TOOL_MESSAGES[activeTool][drawingState]}</span>
       <div className={styles["end-items"]}>
-        <span className='drawing-state'>{drawingState}</span>
+        <span className={styles['drawing-state']}>{drawingState}</span>
         { drawingState==="preview" &&
-          <div className="commit-buttons">
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleCommit}>Apply</button>
+          <div className={styles["commit-buttons"]}>
+            <button className={styles["cancel-button"]} onClick={handleCancel}>Cancel</button>
+            <button className={styles["apply-button"]} onClick={handleCommit}>Apply</button>
           </div>
         }
       </div>

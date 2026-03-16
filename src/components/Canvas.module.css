@@ -10,6 +10,7 @@
   margin: 5rem;
   border: 1px solid #fff;
   background: repeating-conic-gradient(#fff 0 25%, #e0e0e0 0 50%) 0% / 50px 50px;
+  cursor: crosshair;
 }
 
 .canvas-container canvas{

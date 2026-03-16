@@ -3,8 +3,11 @@
 }
 .buttonset>button{
   flex: 1;
+  background-color: #ddd;
+  border: none;
+  margin: 1px;
 }
 
-.active-button{
-  background-color: #999;
+button.active-button{
+  background-color: #bbb;
 }

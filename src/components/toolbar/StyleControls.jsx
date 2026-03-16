@@ -6,7 +6,7 @@ import { PreviewCanvasContext } from "_contexts/CanvasContext";
 import useFillStyle from '_hooks/useFillStyle';
 import useStrokeStyle from '_hooks/useStrokeStyle';
 import { COLOR_STYLE_MODES, LINE_STYLE_PATTERNS } from "_constants/constants";
-import styles from './ToolBar.module.css';
+import styles from './StyleControls.module.css';
 
 const colorStyles= COLOR_STYLE_MODES.map(x=>{return {...x, label: x.mode}});
 
@@ -52,7 +52,7 @@ export default function StyleControls() {
   
   return (
       <div className={styles["style-controls"]}>
-      <div className="fillStyleContainer">
+        <div className={styles.fillStyleContainer}>
         <label>Fill Styles</label>    
         <ButtonSet key="fillStyle"
                    buttons={colorStyles}
@@ -67,12 +67,12 @@ export default function StyleControls() {
                          onSelect={setFillColorStyle} />
           }
       </div>
-      <div className="strokeStyleContainer>">
-        <label>Stroke Styles</label>
-        <ButtonSet key="strokeStyle"
-                   buttons={colorStyles}
-                   selectedIndex={selectedStrokeIndex}
-                   onSelect={(i)=>{setSelectedStrokeMethod(i); setEditStyleOf("stroke"); }}/>
+        <div className={styles.strokeStyleContainer}>
+          <label>Stroke Styles</label>
+          <ButtonSet key="strokeStyle"
+                     buttons={colorStyles}
+                     selectedIndex={selectedStrokeIndex}
+                     onSelect={(i)=>{setSelectedStrokeMethod(i); setEditStyleOf("stroke"); }}/>
           {(editStyleOf=="stroke") &&
            <ColorOptions mode={strokeStyle.mode}
                          initialPrimaryColor={strokeStyle.primaryColor}

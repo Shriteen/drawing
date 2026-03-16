@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { MetadataContext } from '_contexts/MetadataContext';
 import { CanvasContext } from "_contexts/CanvasContext";
+import styles from '../SideBar.module.css';
 
 export default function MetaControls() {
   const mdContext= useContext(MetadataContext);
@@ -21,7 +22,7 @@ export default function MetaControls() {
   }
   
   return (
-    <div className="meta-controls">
+    <div className={styles["meta-controls"]}>
       <input type="text" value={title} onInput={setTitle} placeholder='Title'></input>
       <button onClick={handleClick}>Export</button>
     </div>

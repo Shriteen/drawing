@@ -27,7 +27,7 @@ input[type="number"]{
 }
 
 input[type="color"]{
-  margin: 0.3rem 1rem;
+  margin: 0.3rem;
   padding: 0;
   border: none;
   border-radius: 0.5rem;

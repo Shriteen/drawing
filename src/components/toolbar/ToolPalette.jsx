@@ -3,6 +3,7 @@ import { ActiveToolContext } from "_contexts/ToolContexts";
 import { DrawingContext } from '_contexts/CanvasContext';
 import ButtonSet from "_components/utility/ButtonSet";
 import { TOOLS } from '_constants/constants';
+import styles from './ToolBar.module.css';
 
 export default function ToolPalette() {
   const {activeTool, setActiveTool} = useContext(ActiveToolContext);
@@ -20,7 +21,7 @@ export default function ToolPalette() {
   }
   
   return (
-    <div className="tool-palette">
+    <div className={styles["tool-palette"]}>
       <ButtonSet buttons={tools}
                  selectedIndex={tools.findIndex((tool)=>tool.id===activeTool)}
                  onSelect={handleSelect}/>
