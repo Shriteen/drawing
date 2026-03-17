@@ -30,9 +30,9 @@ export default function ToolOptions() {
   const fontOptionElements= fontList.map(font=>(<option key={font.value} value={font.value}>{font.name}</option>));
   
   return (
-    <div className="tool-options">
+    <div className={styles["tool-options"]}>
       {["rectangle","circle","text"].includes(activeTool) && (
-        <div className="fill-or-stroke">
+        <div className={styles["fill-or-stroke"]}>
           <ButtonSet buttons={fillStroke}
                      selectedIndex={ fillStroke.findIndex((x)=>x.id===toolOptions.fillStroke) }
                      onSelect={(i)=>dispatchToolOptions(
@@ -49,21 +49,25 @@ export default function ToolOptions() {
       )}
       {"circle"===activeTool && ["arc","segment","sector"].includes(toolOptions.arcSubtool) && (
         <div className="arc-options">
-          <div className="arc-angles">
-            <label>Start Angle</label>
-            <input type="number" min="-360" max="360"
-                   value={toolOptions.arcStart}
-                   onChange={(e)=>dispatchToolOptions({
-                     type: "arcStart",
-                     value: Math.min(Math.max(Number(e.target.value), -360), 360)
-                   })}/>
-            <label>End Angle</label>
-            <input type="number" min="-360" max="360"
-                   value={toolOptions.arcEnd}
-                   onChange={(e)=>dispatchToolOptions({
-                     type: "arcEnd",
-                     value: Math.min(Math.max(Number(e.target.value), -360), 360)
-                   })}/>
+          <div className={styles["arc-angles"]}>
+            <div>
+              <label>Start ∡</label>
+              <input type="number" min="-360" max="360"
+                     value={toolOptions.arcStart}
+                     onChange={(e)=>dispatchToolOptions({
+                       type: "arcStart",
+                       value: Math.min(Math.max(Number(e.target.value), -360), 360)
+                     })}/>
+            </div>
+            <div>            
+              <label>End ∡</label>
+              <input type="number" min="-360" max="360"
+                     value={toolOptions.arcEnd}
+                     onChange={(e)=>dispatchToolOptions({
+                       type: "arcEnd",
+                       value: Math.min(Math.max(Number(e.target.value), -360), 360)
+                     })}/>
+            </div>
           </div>
           <ButtonSet buttons={arcDirection}
                      selectedIndex={toolOptions.arcCC?1:0}
@@ -78,32 +82,34 @@ export default function ToolOptions() {
                    )}/>
       )}
       { ["pen","eraser"].includes(activeTool) && (
-        <div className="size">
-          <label>Size</label>
-          <input type="number"
-                 value={toolOptions.size}
-                 onChange={(e)=>dispatchToolOptions(
-                   {type: "size", value: Number(e.target.value)}
-                 )}/>
+        <div className={styles.size}>
+          <div>
+            <label>Size</label>
+            <input type="number"
+                   value={toolOptions.size}
+                   onChange={(e)=>dispatchToolOptions(
+                     {type: "size", value: Number(e.target.value)}
+                   )}/>
+          </div>
         </div>
       )}
       { "text"===activeTool && (
         <>
-          <div className="text">
-            <label>Text</label>
-            <input type="text"
-                   value={toolOptions.text}
-                   onInput={(e)=>dispatchToolOptions({type: "text", value: e.target.value})}
-                   placeholder='Enter text'/>
-          </div>
-          <div className="font-family">
-            <label>Font</label>
-            <select value={toolOptions.font}
-                    onChange={(e)=>dispatchToolOptions({type: "font", value: e.target.value})}>
-              {fontOptionElements}
-            </select>
-          </div>
-            <div className={styles["text-options"]}>
+          <div className={styles["text-options"]}>
+            <div className={styles.text}>
+              <label>Text</label>
+              <input type="text"
+                     value={toolOptions.text}
+                     onInput={(e)=>dispatchToolOptions({type: "text", value: e.target.value})}
+                     placeholder='Enter text'/>
+            </div>
+            <div className={styles["font-family"]}>
+              <label>Font</label>
+              <select value={toolOptions.font}
+                      onChange={(e)=>dispatchToolOptions({type: "font", value: e.target.value})}>
+                {fontOptionElements}
+              </select>
+            </div>
             <div>
               <label>Size</label>
               <input type="number"

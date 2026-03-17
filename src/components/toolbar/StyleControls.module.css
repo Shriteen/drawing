@@ -1,88 +1,100 @@
 .source-point, .target-point{
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .source-point > *, .target-point>*{
-  display: flex;
-  flex: 1;
-  align-items: center;
+    display: flex;
+    flex: 1;
+    align-items: center;
 }
 .source-point input, .target-point input{
-  width: 3em;
-  margin: 0.2em;
-  border: none;
+    width: 3em;
+    margin: 0.2em;
+    border: none;
 }
 
 .style-controls{
-  margin: 1rem 0.5rem;
+    margin: 1rem 0.5rem;
 }
 
 .style-controls>div + div{
-  margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .style-controls :global(.buttonset)>button:first-child{
-  /* Large means pill shape */
-  border-radius: 9999px 0 0 9999px;
+    /* Large means pill shape */
+    border-radius: 9999px 0 0 9999px;
 }
 .style-controls :global(.buttonset)>button:last-child{
-  /* Large means pill shape */
-  border-radius: 0 9999px 9999px 0;
+    /* Large means pill shape */
+    border-radius: 0 9999px 9999px 0;
 }
 
 .color-buttons{
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 .color-buttons button{
-  margin: 0 1em;
-  padding: 0.5em;
-  border-radius: 9999px;
-  border: 2px solid #009fff;
-  transition-duration: 0.5s;
+    margin: 0 1em;
+    padding: 0.5em;
+    border-radius: 9999px;
+    border: 2px solid #009fff;
+    transition-duration: 0.5s;
 }
 .color-buttons button:hover{
-  background-color:  #009fff;
-  color: white;
+    background-color:  #009fff;
+    color: white;
 }
 
-.lineStyleContainer{
-  margin: 0.5rem 0.5rem;
-}
 .color-options{
-  padding: .5rem;
-  margin: 0.5rem 0;
-  background-color: #e0e0e0;
-  border-radius: 0.5rem;
+    padding: .5rem;
+    margin: 0.5rem 0;
+    background-color: #e0e0e0;
+    border-radius: 0.5rem;
 }
 .color-options > div + div{
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
 .color-input-element{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .rgba-input{
-  display: flex;
+    display: flex;
 }
 .rgba-input>*{
-  flex: 1;
-  border: none;
-  padding: 0.3em;
+    flex: 1;
+    border: none;
+    padding: 0.3em;
 }
 
 .rgba-input .r{
-  background-color: #ffafaf;
+    background-color: #ffafaf;
 }
 .rgba-input .g{
-  background-color: #afffaf;
+    background-color: #afffaf;
 }
 .rgba-input .b{
-  background-color: #afafff;
+    background-color: #afafff;
 }
 .rgba-input .a{
-  background: repeating-conic-gradient(#fff 0 25%, #e8e8e8 0 50%) 0% / 10px 10px
+    background: repeating-conic-gradient(#fff 0 25%, #e8e8e8 0 50%) 0% / 10px 10px
+}
+
+.lineStyleContainer{
+    margin: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.lineStyleContainer label{
+    margin: 0.2em;
+}
+.lineStyleContainer input, .lineStyleContainer select{
+    padding: 0.5em;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }

@@ -44,6 +44,12 @@
 
 .toolbar{
     flex:1;
+    overflow: scroll;
+}
+
+.spacetime-controls{
+    border-top: 1px solid #bcbcbc;
+    padding-top: 5px;
 }
 
 .spacetime-controls > *{
@@ -55,4 +61,32 @@
     margin: 0.2rem;
     padding: 0.5rem 0rem;
     text-align: center;
+}
+.spacetime-controls button{
+    background-color: #f0f0f0;
+    border: none;
+    box-shadow: 0 0 3px #00000080;
+}
+.spacetime-controls button:hover{
+    background-color: #ddd;
+    scale: 1.1;
+}
+.spacetime-controls button:disabled{
+    box-shadow: none;
+    background-color: initial;
+    scale: 1;
+}
+
+.zoom-in{
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+}
+.zoom-out{
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;    
+}
+
+.toolbar hr{
+    width: 90%;
+    border-color: #eee;
 }

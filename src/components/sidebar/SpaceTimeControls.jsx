@@ -16,9 +16,9 @@ export default function SpaceTimeControls() {
       </div>      
       <div className={styles["zoom-controls"]}>
         <label>Zoom</label>
-        <button onClick={zoomIn}>+</button>
+        <button className={styles["zoom-in"]} onClick={zoomIn} disabled={scale>=10}>+</button>
         <button onClick={zoomReset}>{(scale*100).toFixed(2)}%</button>
-        <button onClick={zoomOut}>-</button>
+        <button className={styles["zoom-out"]} onClick={zoomOut} disabled={scale<=0.1}>-</button>
       </div>
     </div>
   );

@@ -14,7 +14,67 @@
   padding: 1em 1em;
 }
 
-.text-options{
+.tool-options{
+  margin: 0.5em;
+}
+
+.tool-options :global(.buttonset) button{
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.fill-or-stroke :global(.buttonset) button{
+  padding: 0.5em;
+}
+.fill-or-stroke :global(.buttonset){
+  margin: 0.5em 0;
+}
+
+.tool-options input{
+  border: none;
+  padding: 0.3em;
+}
+
+.tool-options.dynamic, .arc-angles, .size{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tool-options.dynamic div, .arc-angles div, .size div{
+  margin: 0.3em;
   display: flex;
+  justify-content: space-between;
+}
+
+.text-options{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0.7em 0em;
+}
+.text-options .text{
+  grid-column: 1 / 4;
+}
+.text-options .font-family{
+  grid-column: 1 / 4;
+}
+.text-options>div{
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3em;
+  align-items: center;
+}
+.text-options label{
+  margin: 0.2em;
+}
+
+.text-options input[type="text"], .text-options select{
+  width: 15em;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: .5em;
+} 
+.text-options .text input[type="text"]{
+  border: 2px solid #009fff;
 }

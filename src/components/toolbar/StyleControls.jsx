@@ -81,18 +81,22 @@ export default function StyleControls() {
                          initialTarget={strokeStyle.targetPoint}
                          onSelect={setStrokeColorStyle}/>
           }
-        <div className={styles["lineStyleContainer"]}>
-          <label>Width</label>  
-          <input type="number" min="1" max="50"
-                 value={lineState.width}
-                 onChange={(e)=>setLineState({...lineState, width: Math.min(Math.max(e.target.value, 1), 50)})} />
-          <label>Style</label>
-          <select value={lineState.style}
-                  onChange={(e)=>setLineState({...lineState, style: e.target.value })}>
+          <div className={styles["lineStyleContainer"]}>
+            <div>
+              <label>Width</label>  
+              <input type="number" min="1" max="50"
+                     value={lineState.width}
+                     onChange={(e)=>setLineState({...lineState, width: Math.min(Math.max(e.target.value, 1), 50)})} />
+            </div>
+            <div>            
+              <label>Style</label>
+              <select value={lineState.style}
+                      onChange={(e)=>setLineState({...lineState, style: e.target.value })}>
             {lineOptionElements}
-          </select>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   );
 }

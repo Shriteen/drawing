@@ -10,6 +10,7 @@ export default function ToolBar() {
     <div className={styles.toolbar}>
       <ToolPalette/>
       <StyleControls/>
+      <hr/>
       <ToolOptions/>
       <ToolDynamicOptions/>
     </div>
