@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "_contexts/AppContext";
 import numberGenerator from "_services/numberGenerator";
+import getNewTabName from "_services/tabName";
 
 export default function useTabs(){
     const { appMdState, setAppMdState,activeTabId,setActiveTabId} = useContext(AppContext);
@@ -9,7 +10,7 @@ export default function useTabs(){
 
     function newTab(){
 	const newId= numberGenerator.next().value;
-	setAppMdState([...appMdState, {id: newId, title: 'Untitled'} ]);
+	setAppMdState([...appMdState, {id: newId, title: getNewTabName(appMdState)} ]);
 	setActiveTabId(newId);
     }
 
@@ -18,7 +19,7 @@ export default function useTabs(){
 
 	//If last tab is closed
 	if(tabsAfter.length==0)
-	    tabsAfter.push({id: numberGenerator.next().value, title: 'Untitled'});
+	    tabsAfter.push({id: numberGenerator.next().value, title: getNewTabName(tabsAfter)});
 
 	//If current tab is closed
 	if(closedId===activeTabId)

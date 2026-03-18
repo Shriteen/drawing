@@ -1,5 +1,6 @@
 import { createContext, useState, useMemo } from 'react';
 import numberGenerator from '_services/numberGenerator';
+import getNewTabName from "_services/tabName";
 
 export const AppContext = createContext({});
 
@@ -7,7 +8,7 @@ export function AppContextProvider({children}){
 
   const [appMdState, setAppMdState] =useState(()=>[{
     id: numberGenerator.next().value,
-    title: 'Untitled',
+    title: getNewTabName(),
   }]);
 
   const [activeTabId, setActiveTabId]=useState(appMdState[0].id);
