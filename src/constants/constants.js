@@ -1,7 +1,7 @@
 export const COLOR_STYLE_MODES = [
-  {mode: "solid"},
-  {mode: "linear-gradient"},
-  {mode: "radial-gradient"}
+    {mode: "solid", reactIcon: "BiSolidCircle"},
+    {mode: "linear-gradient", reactIcon: "BiAdjust"},
+    {mode: "radial-gradient", reactIcon: "BiBullseye"}
 ];
 
 export const LINE_STYLE_PATTERNS = {
@@ -16,19 +16,19 @@ export const LINE_STYLE_PATTERNS = {
 }
 
 export const TOOLS = {
-    "rectangle" : { name: "Rectangle" },
-    "circle" : { name: "Circle" },
-    "line" : { name: "Line" },
-    "pen" : { name: "Pen" },
-    "eraser" : { name: "Eraser" },
-    "text" : { name: "Text" }
+    "rectangle" : { name: "Rectangle" , reactIcon: "BiRectangle"},
+    "circle" : { name: "Circle", reactIcon: "BiCircle" },
+    "line" : { name: "Line", reactIcon: "BiMinus"},
+    "pen" : { name: "Pen", reactIcon: "BiPencil"},
+    "eraser" : { name: "Eraser", reactIcon: "BiEraser" },
+    "text" : { name: "Text", reactIcon: "BiFont" }
 } 
 
 export const ARC_SUBTOOLS = {
-    "circle" : {name: "Circle"},
-    "arc" : {name: "Arc"},
-    "segment" : {name: "Segment"},
-    "sector" : {name: "Sector"}
+    "circle" : {name: "Circle", reactIcon: "BiSolidCircle"},
+    "arc" : {name: "Arc", reactIcon: "BiLoaderAlt"},
+    "segment" : {name: "Segment", reactIcon: "BiSolidAdjustAlt"},
+    "sector" : {name: "Sector", reactIcon: "BiSolidCircleThreeQuarter"}
 }
 
 export const TOOL_MESSAGES = {

@@ -1,17 +1,19 @@
 .tool-palette button{
-  padding: 1em 0em;
+  padding: 0.2em 0em;
   margin: 0 1px;
   border: none;
   border-radius: 5px;
   background-color: #ddd;
   transition-duration: 0.5s;
+  font-size: 1.5em;
+  line-height: 100%;
 }
 
 .tool-palette :global(.active-button){
   background-color: #009fff;
   color: white;
   font-weight: bold;
-  padding: 1em 1em;
+  padding: 0.2 0.5em;
 }
 
 .tool-options{
@@ -48,7 +50,7 @@
 
 .text-options{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   margin: 0.7em 0em;
 }
 .text-options .text{
@@ -77,4 +79,28 @@
 } 
 .text-options .text input[type="text"]{
   border: 2px solid #009fff;
+}
+
+.text svg, .font-family svg, .font-size svg{
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.text-options .button-checkbox svg{
+  font-size: 1.5em;
+  /* aspect-ratio: 1/1; */
+}
+
+.arc-type :global(.buttonset) button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arc-options button{
+  text-wrap: nowrap;
+}
+.arc-options button>svg{
+  font-size: 1.5em;
+  vertical-align: text-bottom;
 }

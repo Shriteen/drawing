@@ -21,6 +21,25 @@
     margin-top: 0.5rem;
 }
 
+.style-controls :global(.buttonset)>button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.3em;
+    text-transform: capitalize;
+}
+.style-controls :global(.buttonset)>button>svg{
+    padding: 0.1em;
+    font-size: 2.5em;
+    color: #999;
+}
+.style-controls :global(.buttonset) > button:global(.active-button) > svg{
+    color: #000;
+}
+.style-controls :global(.buttonset)>button:first-child>svg{
+    font-size: 1.7em;
+}
+
 .style-controls :global(.buttonset)>button:first-child{
     /* Large means pill shape */
     border-radius: 9999px 0 0 9999px;
@@ -44,6 +63,10 @@
 .color-buttons button:hover{
     background-color:  #009fff;
     color: white;
+}
+.color-buttons button svg{
+    vertical-align: middle;
+    padding: 0.1em 0.2em;
 }
 
 .color-options{

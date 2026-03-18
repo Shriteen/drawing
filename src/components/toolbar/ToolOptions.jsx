@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import * as icons from "react-icons/bi";
+import { BiText, BiFontFamily, BiFontSize, BiBold, BiItalic } from "react-icons/bi";
 import ButtonSet from "_components/utility/ButtonSet";
 import { ActiveToolContext,ToolOptionsContext } from "_contexts/ToolContexts";
 import { ARC_SUBTOOLS } from "_constants/constants";
@@ -9,11 +11,26 @@ import styles from './ToolBar.module.css';
 const fillStroke=[{id: "stroke", label: "Stroke"},
                   {id: "fill", label: "Fill"},
                   {id: "both", label: "Both"}];
-const arcDirection=[{label: "Clockwise"},{label: "Counter-Clockwise"}];
+const arcDirection=[
+  {
+    label: "Clockwise",
+    reactIcon: icons["BiRotateRight"],
+    displayMode: "icon-only",
+    tooltip:"Clockwise"
+  },
+  {
+    label: "Counter-Clockwise",
+    reactIcon: icons["BiRotateLeft"],
+    displayMode: "icon-only",
+    tooltip:"Counter-Clockwise"    
+  }
+];
 const arcSubtools = Object.keys(ARC_SUBTOOLS).map(
   key=> {return {
     id: key,
-    label: ARC_SUBTOOLS[key].name
+    label: ARC_SUBTOOLS[key].name,
+    reactIcon: icons[ARC_SUBTOOLS[key].reactIcon],
+    displayMode: "icon-label"
   } });
 const toolShape=[{label: "Circle"},{label: "Square"}];
 const halign= [{id: "left", label: "Left"},
@@ -40,7 +57,7 @@ export default function ToolOptions() {
         </div>
       )}
       {"circle"===activeTool && (
-        <div className="arc-type">
+        <div className={styles["arc-type"]}>
           <ButtonSet buttons={arcSubtools}
                      selectedIndex={ arcSubtools.findIndex((tool)=>tool.id===toolOptions.arcSubtool) }
                      onSelect={(i)=>dispatchToolOptions(
@@ -48,9 +65,9 @@ export default function ToolOptions() {
         </div>
       )}
       {"circle"===activeTool && ["arc","segment","sector"].includes(toolOptions.arcSubtool) && (
-        <div className="arc-options">
+        <div className={styles["arc-options"]}>
           <div className={styles["arc-angles"]}>
-            <div>
+            <div title="Start angle in degrees">
               <label>Start ∡</label>
               <input type="number" min="-360" max="360"
                      value={toolOptions.arcStart}
@@ -59,7 +76,7 @@ export default function ToolOptions() {
                        value: Math.min(Math.max(Number(e.target.value), -360), 360)
                      })}/>
             </div>
-            <div>            
+            <div title="End angle in degrees">            
               <label>End ∡</label>
               <input type="number" min="-360" max="360"
                      value={toolOptions.arcEnd}
@@ -97,38 +114,37 @@ export default function ToolOptions() {
         <>
           <div className={styles["text-options"]}>
             <div className={styles.text}>
-              <label>Text</label>
+              <label><BiText/>Text</label>
               <input type="text"
                      value={toolOptions.text}
                      onInput={(e)=>dispatchToolOptions({type: "text", value: e.target.value})}
                      placeholder='Enter text'/>
             </div>
             <div className={styles["font-family"]}>
-              <label>Font</label>
+              <label><BiFontFamily/>Font</label>
               <select value={toolOptions.font}
                       onChange={(e)=>dispatchToolOptions({type: "font", value: e.target.value})}>
                 {fontOptionElements}
               </select>
             </div>
-            <div>
-              <label>Size</label>
+            <div className={styles["font-size"]}>
+              <label><BiFontSize/>Size</label>
               <input type="number"
                      value={toolOptions.fontSize}
                      onInput={(e)=>dispatchToolOptions(
                        {type: "fontSize", value: Number(e.target.value)}
                      )}/>
             </div>
-            <div className="button-checkbox">
+            <div className={styles["button-checkbox"] + " button-checkbox"}>
               <label>
-                Bold
+                <BiBold/>
                 <input type="checkbox"
                        checked={toolOptions.bold}
                        onChange={(e)=>dispatchToolOptions({type: "bold", value: e.target.checked})}/>
               </label>
             </div>
-            <div className="button-checkbox">
-              <label>
-                Italics
+            <div className={styles["button-checkbox"] + " button-checkbox"}>
+              <label><BiItalic/>
                 <input type="checkbox"
                        checked={toolOptions.italics}
                        onChange={(e)=>dispatchToolOptions({type: "italics", value: e.target.checked})}/>

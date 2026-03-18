@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { BiBlock, BiCheckDouble } from "react-icons/bi";
 import useCanvasController from '_hooks/useCanvasController';
 import { ActiveToolContext } from "_contexts/ToolContexts";
 import {TOOL_MESSAGES} from "_constants/constants";
@@ -17,8 +18,8 @@ export default function StatusBar() {
         <span className={styles['drawing-state']}>{drawingState}</span>
         { drawingState==="preview" &&
           <div className={styles["commit-buttons"]}>
-            <button className={styles["cancel-button"]} onClick={handleCancel}>Cancel</button>
-            <button className={styles["apply-button"]} onClick={handleCommit}>Apply</button>
+            <button className={styles["cancel-button"]} onClick={handleCancel}>Cancel<BiBlock/></button>
+            <button className={styles["apply-button"]} onClick={handleCommit}>Apply<BiCheckDouble/></button>
           </div>
         }
       </div>

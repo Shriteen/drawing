@@ -1,3 +1,4 @@
+import { BiX, BiPlus } from "react-icons/bi";
 import useTabs from '_hooks/useTabs';
 import styles from './TabBar.module.css';
 
@@ -11,7 +12,9 @@ export default function TabBar() {
          onClick={e=>setActiveTabId(tab.id)}
     >
       <span className={styles["tab-title"]}>{tab.title}</span>
-      <button className={styles["tab-close"]} onClick={e=> {closeTab(tab.id); e.stopPropagation()}}>X</button>
+      <button className={styles["tab-close"]}
+              onClick={e=> {closeTab(tab.id); e.stopPropagation()}}
+              title="Close"> <BiX/> </button>
     </div>
   ));
   
@@ -20,7 +23,8 @@ export default function TabBar() {
       {tabElements}
       <button className={styles["new-tab-button"]}
               onClick={newTab}
-              disabled={tabs.length>12}>+</button>
+              disabled={tabs.length>12}
+              title="New Tab"><BiPlus/></button>
     </div>
   );
 }

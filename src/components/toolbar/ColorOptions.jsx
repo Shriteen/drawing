@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { BiCheckCircle, BiGitCompare } from "react-icons/bi";
 import styles from './StyleControls.module.css';
 
 function numToHex(number, minWidth=2){
@@ -172,7 +173,7 @@ export default function ColorOptions({
       <div className={styles["color-buttons"]}>
         {
           (mode==="linear-gradient" || mode==="radial-gradient") && (
-            <button onClick={(e)=>{ setPrimaryColor(secondaryColor); setSecondaryColor(primaryColor) }}>Swap</button>
+            <button onClick={(e)=>{ setPrimaryColor(secondaryColor); setSecondaryColor(primaryColor) }}>Swap<BiGitCompare/></button>
           )
         }
         <button onClick={ (e)=>onSelect(
@@ -180,7 +181,7 @@ export default function ColorOptions({
                   {r:secondaryR,g:secondaryG,b:secondaryB,a:secondaryA},
                   {x:sourceX,y:sourceY,r:sourceRad},
                   {x:targetX,y:targetY,r:targetRad}
-                )} >Select</button>
+                )} >Select<BiCheckCircle/></button>
       </div>
     </div>
   );

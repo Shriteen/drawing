@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import * as icons from "react-icons/bi";
 import ButtonSet from "_components/utility/ButtonSet";
 import ColorOptions from "_components/toolbar/ColorOptions";
 import { FillStyleContext, StrokeStyleContext, LineContext } from '_contexts/StylingContexts';
@@ -8,7 +9,12 @@ import useStrokeStyle from '_hooks/useStrokeStyle';
 import { COLOR_STYLE_MODES, LINE_STYLE_PATTERNS } from "_constants/constants";
 import styles from './StyleControls.module.css';
 
-const colorStyles= COLOR_STYLE_MODES.map(x=>{return {...x, label: x.mode}});
+const colorStyles= COLOR_STYLE_MODES.map(x=>{return {
+    ...x,
+    label: x.mode,
+    reactIcon: icons[x.reactIcon],
+    displayMode: "label-icon"
+}});
 
 function getActiveColorStyleIndex(mode){
   return colorStyles.findIndex(style=>style.mode===mode);

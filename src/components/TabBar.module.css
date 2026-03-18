@@ -67,3 +67,7 @@
     background: rgba(0,0,0,0.1);
 }
 
+.tab-close, .new-tab-button{
+    font-size: 1.5em;
+    line-height: 1.5em;
+}

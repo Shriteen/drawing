@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { BiDownload } from "react-icons/bi";
 import { MetadataContext } from '_contexts/MetadataContext';
 import { CanvasContext } from "_contexts/CanvasContext";
 import styles from '../SideBar.module.css';
@@ -24,7 +25,7 @@ export default function MetaControls() {
   return (
     <div className={styles["meta-controls"]}>
       <input type="text" value={title} onInput={setTitle} placeholder='Title'></input>
-      <button onClick={handleClick}>Export</button>
+      <button onClick={handleClick} title="Export"><BiDownload /></button>
     </div>
   );
 }

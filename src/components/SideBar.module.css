@@ -32,6 +32,7 @@
 }
 
 .meta-controls button{
+    font-size: 1.5em;
     transition-duration: 0.5s;
     background-color: #ddd;
 }
@@ -54,6 +55,7 @@
 
 .spacetime-controls > *{
     display: flex;
+    margin: 0 1em;
 }
 
 .spacetime-controls > * > *{
@@ -75,6 +77,14 @@
     box-shadow: none;
     background-color: initial;
     scale: 1;
+}
+.undo-redo-controls button{
+    border-radius: 5px;
+}
+
+.spacetime-controls svg{
+    font-size: 1.5em;
+    vertical-align: bottom;
 }
 
 .zoom-in{

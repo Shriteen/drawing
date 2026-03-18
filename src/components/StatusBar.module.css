@@ -47,11 +47,17 @@
   cursor: pointer;
   border: none;
   transition-duration: 0.5s;
+  text-wrap: nowrap;
 }
-
 .commit-buttons button:hover{
   text-shadow: 0 0 5px;
   scale: 1.1;
+}
+
+.commit-buttons svg{
+  font-size: 1.5em;
+  vertical-align: bottom;
+  margin-left: 0.25em;
 }
 
 .cancel-button{
